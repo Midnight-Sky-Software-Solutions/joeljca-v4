@@ -1,0 +1,21 @@
+---
+import { formatDate } from '../../lib/Util';
+import type { Post } from '../../lib/model/Wordpress';
+
+interface Props { post: Post };
+
+const post = Astro.props.post;
+
+---
+
+<article class="flex flex-col">
+    <a href={`/blog/${post.slug}`}>
+        <h3 class="text-2xl font-serif text-blue-900">{post.title}</h3>
+    </a>
+    <div class="text-xl text-warm-grey-600">{formatDate(new Date(post.date))}</div>
+    <div
+        class="text-xl text-warm-grey-800"
+        set:html={post.excerpt}
+    >
+    </div>
+</article>

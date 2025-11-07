@@ -1,11 +1,20 @@
 ---
+import BlogPost from "../../components/blog/BlogPost.astro";
 import Layout from "../../layouts/Layout.astro";
+import { getPostsFromWordpress } from "../../lib/Wordpress";
+const pageNumber = !!Astro.url.searchParams.get('page') ? +Astro.url.searchParams.get('page')! : 1;
+const posts = await getPostsFromWordpress(pageNumber, 5);
 ---
 
 <Layout>
     <div class="full-width-container pb-14 pt-20">
         <div class="content-width-full">
             <h2 class="py-10">Blog</h2>
+            <div class="flex flex-col gap-12">
+                {posts.posts.map((post) => (
+                    <BlogPost post={post} />
+                ))}
+            </div>
         </div>
     </div>
 </Layout>
