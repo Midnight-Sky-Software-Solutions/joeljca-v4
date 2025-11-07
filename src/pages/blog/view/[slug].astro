@@ -1,0 +1,37 @@
+---
+export async function getStaticPaths() {
+    const posts = await getPostsFromWordpress(1, 100);
+    return posts.posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+import {
+    getPostFromWordpress,
+    getPostsFromWordpress,
+} from "../../../lib/Wordpress";
+import Layout from "../../../layouts/Layout.astro";
+import Ebook from "../../../components/home/Ebook.astro";
+import { NotFoundError } from "../../../lib/model/AppError";
+import type { Post } from "../../../lib/model/Wordpress";
+
+const { slug } = Astro.params;
+const post = (await getPostFromWordpress(slug)) as Post;
+---
+
+<Layout>
+    <div class="full-width-container pb-14 pt-20">
+        {
+            post instanceof NotFoundError ? (
+                <p>Hmmm... That post could not be found.</p>
+            ) : (
+                <div class="content-width-full">
+                    <h2 class="py-10 text-4xl lg:px-20">{post.title}</h2>
+                    <article
+                        class="wordpress lg:px-20 flex flex-col gap-5 text-xl"
+                        set:html={post.content}
+                    ></article>
+                </div>
+            )
+        }
+    </div>
+    <Ebook />
+</Layout>
