@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-josefin-sans);
+  --font-mono: var(--font-inconsolata);
+  --font-serif: "acumin-pro";
+}
+
+@theme {
+  --color-blue-100: #B6E0FE;
+  --color-blue-800: #0A558C;
+  --color-blue-900: #003E6B;
+  --color-cyan-500: #2CB1BC;
+  --color-cyan-700: #0E7C86;
+  --color-cyan-800: #0A6C74;
+  --color-cyan-shade: #1BB8C5;
+  --color-teal-700: #147D64;
+  --color-warm-grey-600: #625D52;
+  --color-warm-grey-700: #504A40;
+  --color-warm-grey-800: #423D33;
+  --color-fresh-lime-900: rgb(26 38 13);
+  --color-fresh-lime-800: rgb(51 77 26);
+  --color-fresh-lime-700: rgb(77 115 40);
+  --color-fresh-lime-600: rgb(102 154 53);
+  --color-fresh-lime-500: rgb(128 192 66);
+  --color-fresh-lime-400: rgb(153 205 104);
+  --color-fresh-lime-300: rgb(179 217 142);
+  --color-fresh-lime-200: rgb(204 230 179);
+  --color-fresh-lime-100: rgb(230 242 217);
+  --color-fresh-lime-050: rgb(242 249 236);
+  --color-aqua-glow-900: rgb(2 34 41);
+  --color-aqua-glow-800: rgb(4 68 82);
+  --color-aqua-glow-700: rgb(6 103 124);
+  --color-aqua-glow-600: rgb(8 137 165);
+  --color-aqua-glow-500: rgb(10 171 206);
+  --color-aqua-glow-400: rgb(59 188 216);
+  --color-aqua-glow-300: rgb(108 205 226);
+  --color-aqua-glow-200: rgb(157 221 235);
+  --color-aqua-glow-100: rgb(206 238 245);
+  --color-aqua-glow-050: rgb(231 247 250);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Marvel, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Arial;
+  font-display: swap;
+  src: local(Arial)
+}
+
+@layer base {
+  
+  h2 {
+    font-size: var(--text-3xl);
+    font-family: var(--font-serif);
+  }
+
+  h3 {
+    font-size: var(--text-2xl);
+    font-family: var(--font-serif);
+  }
+
+  h4 {
+    font-size: var(--text-xl);
+    font-family: var(--font-serif);
+  }
+
+  .wordpress {
+    
+    ul {
+      list-style: disc;
+      list-style-position: inside;
+    }
+
+    a {
+      color: var(--color-blue-800);
+      text-decoration: underline;
+    }
+
+    .aligncenter {
+      display: flex;
+      justify-content: center;
+    }
+
+    pre {
+      overflow-x: scroll;
+      font-size: small;
+    }
+  }
+  
+}
+
+@layer components {
+  .full-width-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .content-width-full {
+    max-width: var(--container-6xl);
+    padding-left: --spacing(3);
+    padding-right: --spacing(3);
+    flex-grow: 1;
+  }
+}
+
