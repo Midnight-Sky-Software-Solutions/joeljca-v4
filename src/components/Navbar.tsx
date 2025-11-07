@@ -18,7 +18,6 @@ export default function NavBar() {
 }
 
 function MobileNav() {
-
   const [isOpen, setIsOpen] = useState(false);
   const navItemsWithHome = [
     { name: "Home", href: "/" }
