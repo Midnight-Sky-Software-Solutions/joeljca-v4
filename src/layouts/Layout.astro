@@ -13,12 +13,10 @@ import FontHack from "../components/FontHack";
 		<link rel="icon" type="image/ico" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://use.typekit.net/bcn7uzq.css" />
 	</head>
 	<body>
 		<NavBar client:load />
 		<slot />
-		<FontHack client:load />
 	</body>
 </html>
