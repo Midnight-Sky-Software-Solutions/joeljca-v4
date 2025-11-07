@@ -1,3 +1,7 @@
+---
+import { Image } from 'astro:assets';
+---
+
 <div
     class="bg-[url(/experiencem.jpg)] md:bg-[url(/experience.webp)] bg-center md:bg-top bg-cover bg-fixed h-60 mt-10"
 >
@@ -5,7 +9,7 @@
         <div class="content-width-full flex flex-col justify-center">
             <ul class="text-white text-2xl font-bold sm:grid grid-cols-3">
                 <li class="flex items-center">
-                    <img
+                    <Image
                         width={48}
                         height={48}
                         src="/check.png"
@@ -13,7 +17,7 @@
                     />React Expertise
                 </li>
                 <li class="flex items-center">
-                    <img
+                    <Image
                         width={48}
                         height={48}
                         src="/check.png"
@@ -21,7 +25,7 @@
                     />7 Years of .NET Experience
                 </li>
                 <li class="flex items-center">
-                    <img
+                    <Image
                         width={48}
                         height={48}
                         src="/check.png"
