@@ -1,7 +1,10 @@
 ---
 export async function getStaticPaths() {
     const posts = await getPostsFromWordpress(1, 100);
-    return posts.posts.map((post) => ({ params: { slug: post.slug } }));
+    return posts.posts.map((post) => ({ 
+        params: { slug: post.slug },
+        props: {title: `${post.title} | Joel Johnston`}
+    }));
 }
 
 import {
@@ -14,10 +17,11 @@ import { NotFoundError } from "../../../lib/model/AppError";
 import type { Post } from "../../../lib/model/Wordpress";
 
 const { slug } = Astro.params;
+const { title } = Astro.props;
 const post = (await getPostFromWordpress(slug)) as Post;
 ---
 
-<Layout>
+<Layout title={title}>
     <div class="full-width-container pb-14 pt-20">
         {
             post instanceof NotFoundError ? (

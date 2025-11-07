@@ -13,7 +13,7 @@ const { page } = Astro.params;
 const posts = await getPostsFromWordpress(page, 5);
 ---
 
-<Layout>
+<Layout title="Blog">
     <div class="full-width-container pb-14 pt-20">
         <div class="content-width-full">
             <h2 class="py-10">Blog</h2>

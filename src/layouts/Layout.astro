@@ -1,7 +1,12 @@
 ---
+interface Props {
+	title?: string
+}
+
 import "../styles/globals.css";
 import '@fontsource/marvel';
 import NavBar from "../components/Navbar";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,7 +16,7 @@ import NavBar from "../components/Navbar";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/ico" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title || 'ASP.NET Modernization Services'} | Joel Johnston</title>
 		<link rel="stylesheet" href="https://use.typekit.net/bcn7uzq.css" />
 		<link rel="preload" href="/moi.jpg" as="image" fetchpriority="high">
 	</head>
