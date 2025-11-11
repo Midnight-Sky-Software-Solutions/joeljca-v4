@@ -1,5 +1,6 @@
 import { Bars3Icon } from "@heroicons/react/16/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useRouteHash from "../hooks/UseRouteHash";
 
 const navItems = [
   { name: "Services", href: "/#services" },
@@ -22,6 +23,10 @@ function MobileNav() {
   const navItemsWithHome = [
     { name: "Home", href: "/" }
   ].concat(navItems);
+  const hash = useRouteHash();
+  useEffect(() => {
+    setIsOpen(false);
+  }, [hash]);
 
   return (
     <header className={`bg-white/40 lg:hidden fixed top-0 z-10 border-1 border-warm-grey-700 ${!isOpen ? '-translate-y-100' : ''} transition duration-200 ease-in-out w-[100vw]`}>
