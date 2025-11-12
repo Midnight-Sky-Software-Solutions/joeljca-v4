@@ -1,6 +1,21 @@
+---
+import Picture from "astro/components/Picture.astro";
+import AbstractImg from "../../../public/abstract2.jpg";
+---
+
 <div
-    class="bg-[url('/abstract2m2.jpg')] sm:bg-[url('/abstract2.webp')] from-cyan-800 to-cyan-shade flex h-[100vh] min-h-140 bg-cover"
+    class="relative from-cyan-800 to-cyan-shade flex h-[100vh] min-h-140 bg-cover"
 >
+    <div class="absolute flex w-full h-full -z-1">
+        <Picture
+            class="object-cover h-full w-[100vw] -z-1"
+            layout="full-width"
+            src={AbstractImg}
+            alt="Abstract bacvkground"
+            fit="cover"
+            priority
+        />
+    </div>
     <div class="flex grow justify-center bg-black/50">
         <div
             class="flex flex-col max-w-6xl grow items-center px-8 sm:px-16 lg:px-32 sm:flex-row pt-12 lg:pt-0 text-center lg:text-right gap-10"
@@ -22,12 +37,13 @@
                 </div>
             </div>
             <div class="grow flex flex-col justify-center">
-                <img
+                <Picture
                     src="/moi.jpg"
                     alt="A picture of me (Joel)"
                     width={327}
                     height={327}
                     class="rounded-full border-5 border-teal-700 mx-3 shadow-md"
+                    priority
                 />
             </div>
         </div>
